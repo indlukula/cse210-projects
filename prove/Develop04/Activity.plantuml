@@ -1,0 +1,117 @@
+@startuml Activities
+
+Activity <|-- BreathingActivity : inherit
+Activity <|-- ReflectionActivity : inherit
+Activity <|-- ListingActivity : inherit
+
+    class Activity
+    {
+        __**Behavior**__
+
+        Introduction message
+        time duration prompt
+        Spinner timer
+        Countdown timer
+        Closing message
+
+        __**Attribute**__
+        protected _activityName(string)
+        protected _activityTime(int)
+        protected _introMessage(string)
+
+        __**Constructors**__
+        public Activity(activityName, activityTime, introMessage){}
+        public GetActivityTime()
+        public SetActivityTime()
+        public GetSpinner()
+        public GetCountDown()
+        public GetClosingMessage()
+
+    }
+    class BreathingActivity
+    {
+       __**Behavior**__
+       Breathing countdown
+
+       __**Attribute**__
+       protected _breathIn(string)
+       protected _breathOut(string)
+       protected _activityDescription(string)
+
+       __**Constructors**__
+       public BreathingActivity(breathIn, breathOut, activityDescription){}
+       public GetActivitydescription()
+       public GetBreathing()
+
+    }
+    class ReflectionActivity
+    {
+         __**Behavior**__
+         Reflection prompt
+         Reflection timer
+
+         __**Attribute**__
+         protected _thinkPromptList(string)
+         protected _questionList(string)
+         protected _activityDescription(string)
+
+         __**Constructors**__
+         public ReflectionActivity(thinkPromptList, questionList, activityDescription){}
+         public GetActivitydescription()
+         public GetQuestionList()
+         public GetThinkPromptList()
+         public ShowQuestion()
+         public ShowPrompt()
+
+    }
+    class ListingActivity
+    {
+        __**Behavior**__ 
+        Prompts question to user
+        Take user response
+        
+        __**Attribute**__
+        protected _promptList(string)
+        protected _userInput(string)
+        protected _activityDescription(string)
+
+        __**Constructors**__
+        public ListingActivity(promptList, userInput, activityDescription){}
+        public GetActivitydescription()
+        public GetPrompt()
+        public GetActivityTime()
+    }
+    class Animation
+    {
+        __**Behavior**__ 
+        Animates timers
+
+        __**Attribute**__
+        public _spin(string)
+        public _matrix(int)
+        public _loadBar(string)
+
+        __**Constructors**__
+        public Animation(loadBar, matrix, spin){}
+        public loadBar()
+        public spin()
+        public matrix()
+    }
+    class Spinner
+    {
+        __**Behavior**__ 
+        Count downs
+
+        __**Attribute**__
+        public _counter(int)
+
+         __**Constructors**__
+         public Stopwatch()
+         public ShowSpinner()
+         public Spinner()
+         public Percentage()
+    }
+
+
+
+@enduml
