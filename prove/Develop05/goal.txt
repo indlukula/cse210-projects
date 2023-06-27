@@ -1,0 +1,4 @@
+0
+System.Func`1[System.String]; Run Evry Morning; Run 5Km Every Morning; 100; False
+System.Func`1[System.String]; Pray Every Morning And Evening; Pray When I Wakeup And When I Goto Bed; 200; False
+Check List Goal:; Exercise; Do Pressups Every Morning; 500; False; 200; 2; 0

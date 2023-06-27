@@ -1,0 +1,2 @@
+0
+System.Func`1[System.String]; Drink Water; Drink Water Daily ; 100; False

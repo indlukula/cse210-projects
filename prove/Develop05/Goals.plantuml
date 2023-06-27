@@ -1,0 +1,75 @@
+@startuml teamgoals
+Goals <|-- Simplegoals : inherit 
+Goals<|-- Eternalgoals : inherit 
+Goals <|--Checklist : inherit 
+    
+    
+    class Goals(abstract)
+    {
+        __**Behavior**__
+        __**Attribute**__
+        protected _goalName (string)
+        protected _description (string)
+        protected _points(int)
+        protected _isComplete  (boolean)
+        __**Constructor**__
+        public Goals(name, description, points){}
+        public abstract RecordEvent()
+        public abstract IsComplete()
+        public abstract Fullgoal()
+
+    }
+    class Simplegoals
+    {
+        __**Behavior**__
+        inherit from the Goal class
+        __**Attribute**__
+        private _ awarededPoint (int)
+        __**Constructor**__
+        public Simplegoals( name, description, points) : base(name, description, points)
+        public override Fullgoal()
+    }
+    class Eternalgoals
+    {
+        __**Behavior**__
+        inherit from the Goal class
+        __**Attribute**__
+        private _ awarededPoint (int)
+        __**Constructor**__
+        public Eternalgoals( name, description, points) : base(name, description, points)
+        public override Fullgoal()
+
+    }
+    class Checklist
+    {
+        __**Behavior**__
+        inherit from the Goal class
+        __**Attribute**__
+        private _ awarededPoint (int)
+        private _bonusPoint (int)
+        private _nmbOfTime (int)
+        __**Constructor**__
+        public Checklist( name, description, points) : base(name, description, points)
+        public override Fullgoal()
+
+    }
+    class Main
+    {
+        __**Behavior**__
+        write, save, load, and create a file
+
+        __**Attribute**__
+        protected _userChoice(int)
+        protected _userInput(strig)
+        protected _menu(string)
+
+        __**Constructor**__
+        public Main() : base()
+        public saveGoal()
+        public loadGoal()
+        public createGoal()
+
+
+
+    }
+@enduml
