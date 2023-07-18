@@ -1,14 +1,14 @@
  public class Menu
 {
     private Game WordGuessingGame;
-    private List<Player> players;
-    private bool gamePaused;
+    private List<Player> _players;
+    private bool _gamePaused;
     
      public Menu()
     {
         
-        players = new List<Player>();
-        gamePaused = false;
+        _players = new List<Player>();
+        _gamePaused = false;
     }
      public void Start()
     {
@@ -23,10 +23,10 @@
              switch (choice)
             {
                 case 1:
-                    gamePaused = false;
+                    _gamePaused = false;
                     break;
                 case 2:
-                    gamePaused = true;
+                    _gamePaused = true;
 					Console.WriteLine("Game paused. Press any key to resume.");
 					Console.ReadKey();
                     break;

@@ -1,27 +1,32 @@
 public class Player
 {
-    private string name;
-    private int score;
+    private string _name;
+    private int _score;
      public Player(string playerName)
     {
-        name = playerName;
-        score = 0;
+        _name = playerName;
+        _score = 0;
     }
-     public string GetName()
+
+    public Player()
     {
-        return name;
+    }
+
+    public string GetName()
+    {
+        return _name;
     }
      public int GetScore()
     {
-        return score;
+        return _score;
     }
      public void AddPoints(int points)
     {
-        score += points;
+        _score += points;
     }
      public void LosePoints(int points)
     {
-        score -= points;
+        _score -= points;
     }
      public bool GuessWord(string word)
     {

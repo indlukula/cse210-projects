@@ -1,21 +1,21 @@
 public class Game
 {
-    private List<Player> players;
-    private Dictionary<int, string> words;
-    private int currentPlayerIndex;
-    private int currentWordIndex;
-    private int currentAttempt;
-    private int totalPlayers;
-    private bool gamePaused;
+    private List<Player> _players;
+    private Dictionary<int, string> _words;
+    private int _currentPlayerIndex;
+    private int _currentWordIndex;
+    private int _currentAttempt;
+    private int _totalPlayers;
+    private bool _gamePaused;
      public Game()
     {
-        players = new List<Player>();
-        words = new Dictionary<int, string>();
-        currentPlayerIndex = 0;
-        currentWordIndex = 0;
-        currentAttempt = 0;
-        totalPlayers = 0;
-        gamePaused = false;
+        _players = new List<Player>();
+        _words = new Dictionary<int, string>();
+        _currentPlayerIndex = 0;
+        _currentWordIndex = 0;
+        _currentAttempt = 0;
+        _totalPlayers = 0;
+        _gamePaused = false;
     }
      public void StartGame()
     {
@@ -23,29 +23,29 @@ public class Game
          Console.WriteLine("Welcome to the Word Guessing Game!");
          // Get number of players
         Console.Write("Enter the number of players: ");
-        totalPlayers = Convert.ToInt32(Console.ReadLine());
+        _totalPlayers = Convert.ToInt32(Console.ReadLine());
          // Create players
-        for (int i = 0; i < totalPlayers; i++)
+        for (int i = 0; i < _totalPlayers; i++)
         {
             Console.Write($"Enter the name of Player {i + 1}: ");
             string playerName = Console.ReadLine();
-            players.Add(new Player(playerName));
+            _players.Add(new Player(playerName));
         }
          // Start game loop
-        while (currentWordIndex < words.Count)
+        while (_currentWordIndex < _words.Count)
         {
-            if (!gamePaused)
+            if (!_gamePaused)
             {
-                Console.WriteLine($"\nCurrent Word: {GetMaskedWord(words[currentWordIndex])}");
+                Console.WriteLine($"\nCurrent Word: {GetMaskedWord(_words[_currentWordIndex])}");
                  // Check if player has guessed the word correctly
-                if (players[currentPlayerIndex].GuessWord(words[currentWordIndex]))
+                if (_players[_currentPlayerIndex].GuessWord(_words[_currentWordIndex]))
                 {
-                    players[currentPlayerIndex].AddPoints(20);
+                    _players[_currentPlayerIndex].AddPoints(20);
                     Console.WriteLine("Congratulations! You guessed the word correctly.");
-                    Console.WriteLine($"Current Score: {players[currentPlayerIndex].GetScore()}");
-                     currentAttempt = 0;
-                    currentWordIndex++;
-                     if (currentWordIndex == words.Count)
+                    Console.WriteLine($"Current Score: {_players[_currentPlayerIndex].GetScore()}");
+                     _currentAttempt = 0;
+                    _currentWordIndex++;
+                     if (_currentWordIndex == _words.Count)
                     {
                         EndGame();
                         return;
@@ -54,16 +54,16 @@ public class Game
                 else
                 {
                     Console.WriteLine("Incorrect guess. Please try again.");
-                     currentAttempt++;
-                     if (currentAttempt == 3)
+                     _currentAttempt++;
+                     if (_currentAttempt == 3)
                     {
                         Console.WriteLine("You couldn't guess the word. Revealing 3 random letters.");
-                         players[currentPlayerIndex].LosePoints(5);
-                         string revealedWord = GetRevealedWord(words[currentWordIndex]);
+                         _players[_currentPlayerIndex].LosePoints(5);
+                         string revealedWord = GetRevealedWord(_words[_currentWordIndex]);
                         Console.WriteLine($"Revealed Word: {revealedWord}");
                     }
                 }
-                 currentPlayerIndex = (currentPlayerIndex + 1) % totalPlayers;
+                 _currentPlayerIndex = (_currentPlayerIndex + 1) % _totalPlayers;
             }
             Console.WriteLine("\n1. Guess Word");
             Console.WriteLine("2. Pause Game");
@@ -73,10 +73,10 @@ public class Game
              switch (choice)
             {
                 case 1:
-                    gamePaused = false;
+                    _gamePaused = false;
                     break;
                 case 2:
-                    gamePaused = true;
+                    _gamePaused = true;
                     Console.WriteLine("Game paused. Press any key to resume.");
                     Console.ReadKey();
                     break;
@@ -142,7 +142,7 @@ public class Game
                 int index = 0;
                  while ((line = sr.ReadLine()) != null)
                 {
-                    words.Add(index, line);
+                    _words.Add(index, line);
                     index++;
                 }
             }
@@ -157,7 +157,7 @@ public class Game
         Console.WriteLine("\nGame Over!");
          int maxScore = 0;
         List<Player> winners = new List<Player>();
-         foreach (var player in players)
+         foreach (var player in _players)
         {
             player.AddPoints(50);
              if (player.GetScore() > maxScore)
@@ -172,7 +172,7 @@ public class Game
             }
         }
          Console.WriteLine("\nScores:");
-         foreach (var player in players)
+         foreach (var player in _players)
         {
             Console.WriteLine($"{player.GetName()}: {player.GetScore()}");
         }

@@ -1,8 +1,9 @@
 public class Dictionary
 {
-     private Dictionary<int, string> words;
+     private Dictionary<int, string> _words;
      private void LoadWordsFromFile()
     {
+        
         try
         {
             using (StreamReader sr = new StreamReader("words.txt"))
@@ -11,7 +12,7 @@ public class Dictionary
                 int index = 0;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    words.Add(index, line);
+                    _words.Add(index, line);
                     index++;
                 }
             }

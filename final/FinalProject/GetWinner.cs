@@ -2,16 +2,16 @@ public class GetWinner
 {
     public string FindWinner(List<Player> players)
     {
-        string winner = "";
-        int highestScore = 0;
+        string _winner = "";
+        int _highestScore = 0;
          foreach (Player player in players)
         {
-            if (player.GetScore() > highestScore)
+            if (player.GetScore() > _highestScore)
             {
-                highestScore = player.GetScore();
-                winner = player.GetName();
+                _highestScore = player.GetScore();
+                _winner = player.GetName();
             }
         }
-         return winner;
+         return _winner;
     }
 }

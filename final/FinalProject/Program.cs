@@ -8,8 +8,18 @@ class Program
     {
         // Menu menu = new Menu();
         // menu.Start();
-        Game game = new Game();
-        game.StartGame();
+        Game _game = new Game();
+        _game.StartGame();
+        Scoreboard scoreboard = new Scoreboard();
+        scoreboard._DisplayScores();
+        // Dictionary dictionary = new Dictionary();
+        // dictionary.LoadWordsFromFile();
+        Player _player = new Player();
+        _player.GetName();
+        _player.GetScore();
+        WordGuessingGame wordGuessingGame = new WordGuessingGame();
+        
+
     }
    
 }
