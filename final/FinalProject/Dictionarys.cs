@@ -1,21 +1,25 @@
-using System;
-
 public class Dictionary
 {
-    private List<string> _dictionary = new List<string> ();
-    public List<string> GetList (string fileName)
+     private Dictionary<int, string> words;
+     private void LoadWordsFromFile()
     {
-        LoadWords(fileName);
-        return _dictionary;
-    }
-    public void AddWord(string word)
-    {
-        _dictionary.Add(word);
-    }
-
-    public void LoadWords(string fileName)
-    {
-        string[] readText = File.ReadAllLines(fileName);
-        
+        try
+        {
+            using (StreamReader sr = new StreamReader("words.txt"))
+            {
+                string line;
+                int index = 0;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    words.Add(index, line);
+                    index++;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Failed to load words from file: " + e.Message);
+        }
+    
     }
 }
