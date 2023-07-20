@@ -3,7 +3,6 @@ public class Dictionary
      private Dictionary<int, string> _words;
      private void LoadWordsFromFile()
     {
-        
         try
         {
             using (StreamReader sr = new StreamReader("words.txt"))

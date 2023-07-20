@@ -19,7 +19,6 @@ class Program
         _player.GetScore();
         WordGuessingGame wordGuessingGame = new WordGuessingGame();
         
-
     }
    
 }

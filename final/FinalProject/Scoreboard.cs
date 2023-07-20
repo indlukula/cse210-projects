@@ -1,5 +1,4 @@
 using System;
-
 public class Scoreboard
 {
     public void _DisplayScores(List<Player> _players)

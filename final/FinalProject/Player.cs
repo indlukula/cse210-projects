@@ -7,7 +7,6 @@ public class Player
         _name = playerName;
         _score = 0;
     }
-
     public Player()
     {
     }

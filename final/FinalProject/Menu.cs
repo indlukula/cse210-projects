@@ -6,7 +6,6 @@
     
      public Menu()
     {
-        
         _players = new List<Player>();
         _gamePaused = false;
     }
